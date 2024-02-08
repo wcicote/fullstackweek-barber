@@ -33,12 +33,12 @@ export default async function Home() {
         <BookingItem />
       </div>
 
-      <div className="px-5 mt-6">
-        <h2 className="text-xs mb-3 uppercase text-gray-400 font-bold">
+      <div className="mt-6">
+        <h2 className="px-5 text-xs mb-3 uppercase text-gray-400 font-bold">
           Recomendados
         </h2>
 
-        <div className="flex px-5 gap-2 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+        <div className="flex px-5 gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden">
           {barbershops.map((barbershop) => (
             <div key={barbershop.id} className="min-w-[167px] max-w-[167px]:">
               <BarbershopItem key={barbershop.id} barbershop={barbershop} />
@@ -46,6 +46,21 @@ export default async function Home() {
           ))}
         </div>
       </div>
+
+      <div className="mt-6 mb-[4.5rem]">
+        <h2 className="px-5 text-xs mb-3 uppercase text-gray-400 font-bold">
+          Populares
+        </h2>
+
+        <div className="flex px-5 gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+          {barbershops.map((barbershop) => (
+            <div key={barbershop.id} className="min-w-[167px] max-w-[167px]:">
+              <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
   );
 }
