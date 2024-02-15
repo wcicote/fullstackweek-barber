@@ -12,8 +12,9 @@ interface BarbershopInfoProps {
 
 const BarbershopInfo = ({barbershop}: BarbershopInfoProps) => {
   const router = useRouter()
+  
   const handleBackClick = () => {
-    router.back()
+    router.replace("/")
   }
 
   return ( 
@@ -34,7 +35,7 @@ const BarbershopInfo = ({barbershop}: BarbershopInfoProps) => {
         />
       </div>
 
-      <div className="px-5 py-3 pb-6 border-solid border-secondary">
+      <div className="px-5 pt-3 pb-6 border-b border-solid border-secondary">
         <h1 className="text-xl font-bold ">{barbershop.name}</h1>
         <div className="flex item-center gap-1 mt-2">
           <MapPinIcon className="text-[#8162FF]" size={18}/>
