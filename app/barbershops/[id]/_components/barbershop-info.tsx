@@ -8,6 +8,7 @@ import { ChevronLeftIcon, MenuIcon, MapPinIcon, StarIcon } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+
 interface BarbershopInfoProps {
   barbershop: Barbershop;
 }
@@ -32,7 +33,7 @@ const BarbershopInfo = ({ barbershop }: BarbershopInfoProps) => {
         </Button>
 
         <Sheet>
-          <SheetTrigger>
+          <SheetTrigger asChild>
             <Button
               size="icon"
               variant="outline"

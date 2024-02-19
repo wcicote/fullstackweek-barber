@@ -1,45 +1,35 @@
 "use client";
 
 import { Card, CardContent } from "./ui/card";
-import { Button } from "@/app/_components/ui/button";
-import {
-  MenuIcon
-} from "lucide-react";
+import { Button } from "./ui/button";
+import { MenuIcon } from "lucide-react";
 import Image from "next/image";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "./ui/sheet";
-
-
-
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import SideMenu from "./side-menu";
+import Link from "next/link";
 
 const Header = () => {
   return (
-    <Card>
-      <CardContent className="px-5 py-8 justify-between items-center flex flex-row">
-        <Image
-          src={"/Logo-fsw.png"}
-          alt={"FSW Barber"}
-          height={18}
-          width={120}
-        ></Image>
+    <header>
+      <Card>
+        <CardContent className="px-5 py-8 justify-between items-center flex flex-row">
+          <Link href="/">
+            <Image src="/Logo-fsw.png" alt="FSW Barber" height={18} width={120} />
+          </Link>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant={"outline"} size={"icon"} className="h-8 w-8">
+                <MenuIcon size={16} />
+              </Button>
+            </SheetTrigger>
 
-        <Sheet>
-          <SheetTrigger>
-            <Button variant={"outline"} size={"icon"} className="h-8 w-8">
-              <MenuIcon size={16}></MenuIcon>
-            </Button>
-          </SheetTrigger>
-
-          <SheetContent className="p-0">
-            <SideMenu />
-          </SheetContent>
-        </Sheet>
-      </CardContent>
-    </Card>
+            <SheetContent className="p-0">
+              <SideMenu />
+            </SheetContent>
+          </Sheet>
+        </CardContent>
+      </Card>
+    </header>
   );
 };
 
