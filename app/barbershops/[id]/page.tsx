@@ -47,5 +47,5 @@ const BarbershopDetailsPage = async ({params}: BarbershopDetailsPageProps) => {
     
    );
 }
- 
-export default BarbershopDetailsPage;
+
+export default BarbershopDetailsPage; 
