@@ -15,21 +15,20 @@ export default async function Home() {
     db.barbershop.findMany({}),
     session?.user
       ? db.booking.findMany({
-      where: {
-        userId: (session.user as any).id,
-        date: {
-          gte: new Date()
-        }
-      },
-      include: {
-        service: true,
-        barbershop: true,
-      },
-    })
-    : Promise.resolve([]),
-  ])
+          where: {
+            userId: (session.user as any).id,
+            date: {
+              gte: new Date(),
+            },
+          },
+          include: {
+            service: true,
+            barbershop: true,
+          },
+        })
+      : Promise.resolve([]),
+  ]);
 
-  
   return (
     <div>
       <Header />
@@ -48,15 +47,19 @@ export default async function Home() {
       </div>
 
       <div className="mt-6">
-        <h2 className="pl-5 text-xs mb-3 uppercase text-gray-400 font-bold">
-          Agendamentos
-        </h2>
+        {confirmedBookings.length > 0 && (
+          <>
+            <h2 className="pl-5 text-xs mb-3 uppercase text-gray-400 font-bold">
+              Agendamentos
+            </h2>
 
-        <div className="px-5 flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
-          {confirmedBookings.map((booking) => (
-            <BookingItem key={booking.id} booking={booking} />
-          ))}
-        </div>
+            <div className="px-5 flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+              {confirmedBookings.map((booking) => (
+                <BookingItem key={booking.id} booking={booking} />
+              ))}
+            </div>
+          </>
+        )}
       </div>
 
       <div className="mt-6">
